@@ -3,8 +3,6 @@
     <title>{{ config('backpack.base.project_name') }} Error 403</title>
     @extends('layouts.app') 
     @section('content')
-    <h1>403 Forbidden.</h1>
-    <p>您沒有權限可以執行目前的動作喔！</p>
     @endsection  
 
     <link href='//fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
@@ -56,9 +54,10 @@
             <?php
               $default_error_message = "Please return to <a href='".url('')."'>our homepage</a>.";
             ?>
+            <p>您沒有權限可以執行目前的動作喔！</p>
             {!! isset($exception)? ($exception->getMessage()?$exception->getMessage():$default_error_message): $default_error_message !!}
-         </small>
-       </div>
+          </small>
+        </div>
       </div>
     </div>
   </body>
