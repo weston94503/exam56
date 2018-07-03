@@ -1,6 +1,11 @@
 <html>
   <head>
     <title>{{ config('backpack.base.project_name') }} Error 403</title>
+    @extends('layouts.app') 
+    @section('content')
+    <h1>403 Forbidden.</h1>
+    <p>您沒有權限可以執行目前的動作喔！</p>
+    @endsection  
 
     <link href='//fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
 
@@ -58,3 +63,4 @@
     </div>
   </body>
 </html>
+
