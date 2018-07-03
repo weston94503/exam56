@@ -24,9 +24,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                 </li>
-                @else
+                @else 
                 @section('my_menu')
-                <li><a class="nav-link" href="/home">{{ __('Home') }}</a></li>
+                @can('後台管理')
+                <li><a class="nav-link" href="/admin">{{ __('Admin') }}</a></li>
+                @endcan
                 @show
                 <li class="nav-item dropdown">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
