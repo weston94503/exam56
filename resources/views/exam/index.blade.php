@@ -10,7 +10,10 @@
                     {{ $exam->title }}
                 </a>
             </li>
+        @empty
+        <li class="list-group-item">尚無任何測驗</l
         @endforeach
     </ul>
 
 @endsection
+
