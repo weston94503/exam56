@@ -1,7 +1,7 @@
 @extends('layouts.app') 
 @section('content')
     <h1>{{ __('隨機題庫系統') }}</h1>
-    <h1>測驗一覽</h1>
+    <h1>測驗一覽<small>（共 {{$exams->total()}} 筆資料）</small></h1>
     <ul class="list-group">
         @forelse($exams as $exam)
             <li class="list-group-item">
