@@ -34,4 +34,5 @@
 
             <p>請先登入或確定身分</p>
         @endcomponent
+        @endcan
 @endsection
