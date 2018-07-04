@@ -21,8 +21,8 @@
             ->label('檔案上傳')
             ->control(bs()->file('avatar2', '選擇一個檔案'))
             }}
-
-        {{ bs()->submit('送出') }}
+        {{ bs()->hidden('user_id', Auth::id()) }}  
+        {{ bs()->submit('儲存') }}
 
 
         {{ bs()->closeForm() }}
