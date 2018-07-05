@@ -1,7 +1,9 @@
 @extends('layouts.app') 
 @section('content')
-    <ul>  {{ $exam->title }}</ul> 
-
+    <h1>  {{ $exam->title }}</h1> 
+    @can('建立測驗')
+        <a href="{{route('exam.edit', $exam->id)}}" class="btn btn-warning">編輯</a>
+    @endcan
     @can('建立測驗')
             {{ bs()->openForm('post', '/topic') }}
                 {{ bs()->formGroup()
@@ -35,6 +37,7 @@
                         ->showAsRow() }}
             {{ bs()->closeForm() }}
     @endcan
+    @if(Auth::id())
         <dl>
             @forelse ($exam->topics as $key => $topic)
                 <dt>
@@ -58,7 +61,7 @@
                 <div class="alert alert-danger">尚無任何題目</div>
             @endforelse
         </dl>
-        
+    @endif   
         
 
 @endsection
