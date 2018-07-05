@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Exam;
 use App\Http\Requests\ExamRequest;
+use App\Topic;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class ExamController extends Controller
@@ -34,7 +36,11 @@ class ExamController extends Controller
      */
     public function create()
     {
-        return view('exam.create');
+        $exam           = new Exam;
+        $exam['enable'] = 1;
+        $method         = 'post';
+        $action         = '/exam';
+        return view('exam.create', compact('exam', 'method', 'action'));
     }
 
     /**
@@ -55,9 +61,13 @@ class ExamController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function show(Exam $exam)
     {
-        return view('exam.show', ['exam' => $exam]);
+        $topic  = new Topic;
+        $method = 'post';
+        $action = '/topic';
+        return view('exam.show', compact('exam', 'topic', 'method', 'action'));
     }
 
     /**
@@ -68,7 +78,9 @@ class ExamController extends Controller
      */
     public function edit(Exam $exam)
     {
-        return view('exam.create', compact('exam'));
+        $method = 'patch';
+        $action = "/exam/" . $exam->id;
+        return view('exam.create', compact('exam', 'method', 'action'));
     }
 
     /**
@@ -93,6 +105,5 @@ class ExamController extends Controller
     public function destroy(Exam $exam)
     {
         $exam->delete();
-        return redirect()->route('exam.index');
     }
 }

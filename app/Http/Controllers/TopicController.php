@@ -60,7 +60,7 @@ class TopicController extends Controller
      */
     public function edit(Topic $topic)
     {
-        $exam   = $topic->exam;
+        $exam = $topic->exam;
         return view('exam.show', compact('exam', 'topic'));
     }
 
@@ -86,6 +86,5 @@ class TopicController extends Controller
     public function destroy(Topic $topic)
     {
         $topic->delete();
-        return redirect()->route('exam.show', $topic->exam_id);
     }
 }
