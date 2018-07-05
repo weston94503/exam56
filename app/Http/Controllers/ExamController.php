@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Topic;
 use Illuminate\Support\Facades\Auth;
 use App\Exam;
 use App\Http\Requests\ExamRequest;
+
 
 class ExamController extends Controller
 {

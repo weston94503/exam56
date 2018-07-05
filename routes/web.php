@@ -11,6 +11,7 @@
 |
  */
 Route::pattern('exam', '[0-9]+');
+Route::pattern('topic', '[0-9]+');
 Route::get('/', 'ExamController@index')->name('index');
 Route::get('/home', 'ExamController@index')->name('home.index');
 
@@ -23,3 +24,5 @@ Route::get('/exam/{exam}', 'ExamController@show')->name('exam.show');
 Route::post('/topic', 'TopicController@store')->name('topic.store');
 Route::patch('/exam/{exam}', 'ExamController@update')->name('exam.update');
 Route::get('/exam/{exam}/edit', 'ExamController@edit')->name('exam.edit');
+Route::get('/topic/{topic}/edit', 'TopicController@edit')->name('topic.edit');
+Route::patch('/topic/{topic}', 'TopicController@update')->name('topic.update');
