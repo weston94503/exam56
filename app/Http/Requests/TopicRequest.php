@@ -13,7 +13,7 @@ class TopicRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return $this->user()->can('建立測驗');
     }
 
     /**
@@ -24,7 +24,21 @@ class TopicRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'topic' => 'required|min:2|max:191',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'topic' => '「:attribute」為必填欄位',
+
+        ];
+    }
+    public function attributes()
+    {
+        return [
+            'topic' => '題目內容',
         ];
     }
 }

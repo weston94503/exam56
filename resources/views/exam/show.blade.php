@@ -36,7 +36,7 @@
             {{ bs()->closeForm() }}
     @endcan
         <dl>
-            @forelse ($topics as $key => $topic)
+            @forelse ($exam->topics as $key => $topic)
                 <dt>
                     <h3>
                     @can('建立測驗')
@@ -52,7 +52,7 @@
                             2=>"<span class='opt'>&#10103; $topic->opt2</span>",
                             3=>"<span class='opt'>&#10104; $topic->opt3</span>",
                             4=>"<span class='opt'>&#10105; $topic->opt4</span>"
-                        ])->inline()->addRadioClass(['mx-3']) }}
+                        ])->addRadioClass(['mx-3']) }}
                 </dd>
             @empty
                 <div class="alert alert-danger">尚無任何題目</div>
