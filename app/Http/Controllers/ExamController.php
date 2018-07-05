@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Topic;
-use Illuminate\Support\Facades\Auth;
 use App\Exam;
 use App\Http\Requests\ExamRequest;
-
+use Illuminate\Support\Facades\Auth;
 
 class ExamController extends Controller
 {
@@ -92,8 +90,9 @@ class ExamController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Exam $exam)
     {
-        //
+        $exam->delete();
+        return redirect()->route('exam.index');
     }
 }
